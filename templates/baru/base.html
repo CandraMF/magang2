@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--begin::Head-->
+	<head><base href="">
+		<meta charset="utf-8" />
+		<title>BPKH | MAGANG</title>
+		<meta name="description" content="BPKH MAGANG" />
+		<meta name="keywords" content="BPKH MAGANG" />
+
+		<link rel="shortcut icon" href="{BaseUrl}favicon-bpkh.ico" />
+		<!--begin::Fonts-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Page Vendor Stylesheets(used by this page)-->
+		<link href="{BaseUrl}assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{BaseUrl}assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(used by all pages)-->
+		<link href="{BaseUrl}assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{BaseUrl}assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+
+
+	 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.js"></script>
+
+
+		
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-fixed">
+		<!--begin::Main-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::Aside-->
+				<div id="kt_aside" class="aside bg-white" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+					<!--begin::Brand-->
+					<div class="aside-logo flex-column-auto pt-9 pb-7 px-9" id="kt_aside_logo">
+						<!--begin::Logo-->
+						<a href="index.html">
+							<img alt="Logo" src="{BaseUrl}images/bpkhm.png" class="max-h-50px logo-default" />
+							<img alt="Logo" src="{BaseUrl}images/bpkhm.png" class="max-h-50px logo-minimize" />
+						</a>
+						<!--end::Logo-->
+					</div>
+					<!--end::Brand-->
+					<!--begin::Aside menu-->
+					<div class="aside-menu flex-column-fluid px-3 px-lg-6">
+						<!--begin::Aside Menu-->
+						<!--begin::Menu-->
+						<div class="menu menu-column menu-pill menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-arrow-gray-500 menu-active-bg-primary fw-bold fs-5 my-5 mt-lg-2 mb-lg-0" id="kt_aside_menu" data-kt-menu="true">
+							<!--MenuAdmin-->
+						</div>
+						<!--end::Menu-->
+					</div>
+					<!--end::Aside menu-->
+					<!--begin::Footer-->
+					<div class="aside-footer flex-column-auto px-6 pb-5" id="kt_aside_footer">
+						<a href="{BaseMain}/logOut" class="btn btn-light-primary w-100" data-bs-toggle="tooltip" data-bs-html="true" data-bs-trigger="hover" title="Keluar Dari Aplikasi">Logout</a>
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" class="header" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex align-items-stretch justify-content-between" id="kt_header_container">
+							<!--begin::Page title-->
+							<div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-2 mb-5 mb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_container'}">
+								<!--begin::Heading-->
+								<h1 class="text-dark fw-bolder mt-1 mb-1 fs-2"><!--Judul-->
+								<small class="text-muted fs-6 fw-normal ms-1"></small></h1>
+								<!--end::Heading-->
+								<!--begin::Breadcrumb-->
+								<ul class="breadcrumb fw-bold fs-base mb-1">
+									<li class="breadcrumb-item text-muted">
+										<a href="index.html" class="text-muted text-hover-primary"><!--MainJudul--></a>
+									</li>
+									<li class="breadcrumb-item text-dark"><!--Judul--></li>
+								</ul>
+								<!--end::Breadcrumb-->
+							</div>
+							<!--end::Page title=-->
+							<!--begin::Logo bar-->
+							<div class="d-flex d-lg-none align-items-center flex-grow-1">
+								<!--begin::Aside Toggle-->
+								<div class="btn btn-icon btn-circle btn-active-light-primary ms-n2 me-1" id="kt_aside_toggle">
+									<!--begin::Svg Icon | path: icons/duotone/Text/Menu.svg-->
+									<span class="svg-icon svg-icon-2x">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<rect fill="#000000" x="4" y="5" width="16" height="3" rx="1.5" />
+												<path d="M5.5,15 L18.5,15 C19.3284271,15 20,15.6715729 20,16.5 C20,17.3284271 19.3284271,18 18.5,18 L5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 Z M5.5,10 L18.5,10 C19.3284271,10 20,10.6715729 20,11.5 C20,12.3284271 19.3284271,13 18.5,13 L5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z" fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+									</span>
+									<!--end::Svg Icon-->
+								</div>
+								<!--end::Aside Toggle-->
+								<!--begin::Logo-->
+								<a href="index.html" class="d-lg-none">
+									<img alt="Logo" src="{BaseUrl}assets/media/logos/logo-compact.svg" class="max-h-40px" />
+								</a>
+								<!--end::Logo-->
+							</div>
+							<!--end::Logo bar-->
+							
+							<!--end::Toolbar wrapper-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Header-->
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid fs-6" id="kt_content">
+						<!--begin::Container-->
+						<div class="container" id="kt_content_container">
+							<!--begin::Row-->
+							<div class="card card-body p-10 p-lg-2">
+
+
+								<!--Isi-->
+							</div>
+							<!--end::Row-->
+							
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex flex-column flex-md-row flex-stack">
+							<!--begin::Copyright-->
+							<div class="text-dark order-2 order-md-1">
+								<span class="text-gray-400 fw-bold me-1">BPKH</span>
+								<a href="" target="_blank" class="text-muted text-hover-primary fw-bold me-2 fs-6">2022</a>
+							</div>
+							<!--end::Copyright-->
+							
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Main-->
+		
+		
+		<!--end::Scrolltop-->
+		<!--begin::Javascript-->
+		<!--begin::Global Javascript Bundle(used by all pages)-->
+		<script src="{BaseUrl}assets/plugins/global/plugins.bundle.js"></script>
+		<script src="{BaseUrl}assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Page Vendors Javascript(used by this page)-->
+		<script src="{BaseUrl}assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="{BaseUrl}assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		<!--end::Page Vendors Javascript-->
+		<!--begin::Page Custom Javascript(used by this page)-->
+		<script src="{BaseUrl}assets/js/custom/documentation/documentation.js"></script>
+		<!--end::Page Custom Javascript-->
+		<!--end::Javascript-->
+
+
+
+	
+	</body>
+	<!--end::Body-->
+</html>
