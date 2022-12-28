@@ -1,7 +1,7 @@
 <?php
 	$servername = "localhost";
-	$username = "postgres";
-	$password = "kampret123";
+	$username = "bpkh";
+	$password = "R@3rq6W17";
 	$dbname = "bpkh";
 
 	$dsn = "pgsql:host=$servername;port=5432;dbname=$dbname;";
