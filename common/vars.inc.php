@@ -16,7 +16,7 @@
 	$Main= new MyVariable;$Dir= new MyVariable;$SQL= new MyVariable;$Ref= new MyVariable;$Url= new MyVariable;
 	
 	///===========================================================================================
-		$UrlFolder="magangbpkh/";
+		$UrlFolder="";
 		$Main->SegmentId=0;
 	///===========================================================================================
 
