@@ -21,15 +21,24 @@
 				$Func->ambilData("select name as position from magang.position_tr where position_id='{$position_id}'");
 				if ($jCount > 0)
 				{	
-					$Qry="UPDATE magang.recruitment_tx SET open_date='{$open_date}', close_date='{$close_date}', position_id='{$position_id}', position='{$position}', department_id='{$department_id}', department='{$department}', letter='{$letter}', letter_date='{$letter_date}', notes='{$notes}', description='{$description}', status_id='{$status_id}', user_id='{$user_id}', update_date='{$TANGGAL_AKSES}' WHERE  recruitment_id='{$idSub}';";}
+					$Qry="UPDATE magang.recruitment_tx SET open_date='{$open_date}', close_date='{$close_date}', position_id='{$position_id}', position='{$position}', department_id='{$department_id}', department='{$department}', letter='{$letter}', letter_date='{$letter_date}', notes='{$notes}', description='{$description}', status_id='{$status_id}', user_id='{$user_id}', update_date='{$TANGGAL_AKSES}' WHERE  recruitment_id='{$idSub}';";
+					$Simpan=_mysql_query( $Qry );
+					$Pesan = $Simpan?"<div class='alert alert-success' role='alert'>Sudah di simpan</div>":"<div class='alert alert-danger mb-xl-0' role='alert'>Gagal di simpan</div>";		
+					echo "<script>parent.location='{$Url->BaseMain}/{$Pg}/{$Pr}/jadwal/baru/$idSub';</script>";	
+				}
 				else
-				{$Qry="INSERT INTO magang.recruitment_tx (open_date, close_date, position_id, position, department_id, department, letter, letter_date, notes, description, status_id, user_id, create_date) VALUES ('{$open_date}', '{$close_date}', '{$position_id}', '{$position}', '{$department_id}', '{$department}', '{$letter}', '{$letter_date}', '{$notes}', '{$description}', '{$status_id}', '{$user_id}', '{$TANGGAL_AKSES}');";}
+				{
+					$Qry="INSERT INTO magang.recruitment_tx (open_date, close_date, position_id, position, department_id, department, letter, letter_date, notes, description, status_id, user_id, create_date) VALUES ('{$open_date}', '{$close_date}', '{$position_id}', '{$position}', '{$department_id}', '{$department}', '{$letter}', '{$letter_date}', '{$notes}', '{$description}', '{$status_id}', '{$user_id}', '{$TANGGAL_AKSES}');";
+					$Simpan=_mysql_query( $Qry );
+					$Pesan = $Simpan?"<div class='alert alert-success' role='alert'>Sudah di simpan</div>":"<div class='alert alert-danger mb-xl-0' role='alert'>Gagal di simpan</div>";		
+					$Func->ambilData("select max(recruitment_id) as id from magang.recruitment_tx ");
+					echo "<script>parent.location='{$Url->BaseMain}/{$Pg}/{$Pr}/jadwal/baru/$id';</script>";	
+				}
 				
-				$Simpan=_mysql_query( $Qry );
 				
 				
-				$Pesan = $Simpan?"<div class='alert alert-success' role='alert'>Sudah di simpan</div>":"<div class='alert alert-danger mb-xl-0' role='alert'>Gagal di simpan</div>";		
-				//echo "<script>setTimeout(function(){ Fm.Action.value='';Fm.submit(); }, 100);</script>";	
+				
+				
 			}
 			else
 			{$Pesan = "<div class='alert alert-danger mb-xl-0' role='alert'>Maaf, form warna merah wajib diisi</div>";}
@@ -43,7 +52,7 @@
 		case "Hapus":
 			_mysql_query("delete from magang.recruitment_tx where recruitment_id='".$idSub."'");
 			$Func->kosongkanData("magang.recruitment_tx");
-			echo "<script>Fm.Action.value='BknSimpan';Fm.Mode.value='';Fm.submit();</script>";	
+			//echo "<script>Fm.Action.value='BknSimpan';Fm.Mode.value='';Fm.submit();</script>";	
 		break;
 		case "Baru":
 			$Func->kosongkanData("magang.recruitment_tx");
@@ -51,6 +60,9 @@
 			$idSub="";
 			$ParamAksi="<script>setTimeout(function(){  $('#kt_modal_1').modal('show'); }, 500);</script>";
 		break;
+		
+
+		
 		default:
 			if(empty($Action)){$Func->kosongkanData("magang.recruitment_tx");}
 	}
@@ -73,6 +85,7 @@
 		 	
 		$onclick_edit="onclick=\"Fm.idSub.value='{$Isi['recruitment_id']}';Fm.Action.value='Lihat';Fm.submit();\" ";
 		$onclick_hapus="onclick=\"Cek=confirm('Apakah yakin akan menghapus data?');if(!Cek){return false;}else{Fm.idSub.value='{$Isi['recruitment_id']}';Fm.Action.value='Hapus';Fm.submit();}\"";
+		
 		$td=" 
 			<td align=center>
 				<div class='card-toolbar'>
@@ -110,6 +123,8 @@
 						<div class='menu-item px-3' onclick=\"parent.location='{$Url->BaseMain}/{$Pg}/{$Pr}/major/baru/{$Isi['recruitment_id']}';\">
 							<a href='#' class='menu-link px-3'>Jurusan</a>
 						</div>
+
+						
 						<div class='separator mb-3 opacity-75'></div>
 					</div>
 					<!--end::Menu 2-->
@@ -117,26 +132,42 @@
 				</div>
 
 			</td>"; 
+		switch($Isi['status_id']){
+			case "REC001":
+				$badg="badge badge-secondary";
+			break;
+			case "REC101":
+				$badg="badge-success";
+			break;
+			case "REC102":
+				$badg="badge-primary";
+			break;
+			case "REC201":
+				$badg="badge-warning";
+			break;
+		}
 		
-
 		
 		$ListMode.=" 
-			<tr  > 
+			<tr> 
  				<td>{$i}</td>
+ 				<td><strong class='text-gray-800 fw-boldest fs-5 text-hover-primary mb-1'>{$Isi['position']}</strong><br>
+				<span class='badge {$badg}'>{$Isi['sts']}</span>
+				</td>
+ 				<td><span class='text-gray-400 fw-bold d-block'>{$Isi['department']}</span></td>
+ 				<td> <code >".$Func->TglAll($Isi['open_date'])."</code>s/d				<code>".$Func->TglAll($Isi['close_date'])."</code></td>
  				<td>
-					<strong>{$Isi['position']}</strong><br>
-					{$Isi['department']}<br>
-					<span class='badge badge-dark' style='margin-bottom:4px;'>{$Isi['description']}</span><br>
-					<span class='badge badge-info' >".$Func->TglAll($Isi['open_date'])."</span>
-					<span class='badge badge-warning'>".$Func->TglAll($Isi['close_date'])."</span>
-					<span class='badge badge-success'>{$Isi['sts']}</span>
+					No. Surat<code >{$Isi['letter']}</code> <br> Tgl. Surat  <code >".$Func->TglAll($Isi['letter_date'])."</code>
+ 				</td>
+ 				<td>
+					<em>{$Isi['description']}</em>
 				</td>
 				{$td}
 			</tr> 
 		";$i++; 
 	}
-
 	include "{$Dir->ModAdmin}{$Pr}/detail.inc.php";
+	
 
 	$Qry="select status_id, name from magang.status_tr where type='Status Rekrutmen'"; 
 	$Qry=_mysql_query($Qry);$li="";
@@ -191,7 +222,11 @@
 				<thead>
 					<tr class='fw-bold fs-6 text-gray-800'>
 						<th class='min-w-10px'>No</th>
-						<th class='min-w-500px'>Rekrutmen</th>
+						<th class='min-w-100px'>Posisi</th>
+						<th class='min-w-100px'>Unit Kerja</th>
+						<th class='min-w-100px'>Periode</th>
+						<th class='min-w-100px'>Surat</th>
+						<th class='min-w-100px'>Keterangan</th>
 						<th class='min-w-50px'>Aksi</th>
 					</tr>
 				</thead>

@@ -102,21 +102,21 @@
 			<a href='#' class='btn btn-success me-2 mb-2' onclick=\"Fm.Action.value='Baru';Fm.submit();\" ><i class='las fa-folder-plus fs-2 me-2'></i>Tambah Data</a>
 			
 			<table id='kt_datatable_example_3' class='table table-striped gy-5 gs-7'>
-			<thead>
-				<tr class='fw-bold fs-6 text-gray-800'>
-					<th class='min-w-10px'>No</th>
-					<th class='min-w-150px'>Nama</th>
-					<th class='min-w-100px'>NIK</th>
-					<th class='min-w-100px'>TTL</th>
-					<th class='min-w-100px'>Email</th>
-					<th class='min-w-100px'>No. Ponsel</th>
-					<th class='min-w-50px'>Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				$ListMode
-			</tbody>
-		</table>
+				<thead>
+					<tr class='fw-bold fs-6 text-gray-800'>
+						<th class='min-w-10px'>No</th>
+						<th class='min-w-150px'>Nama</th>
+						<th class='min-w-100px'>NIK</th>
+						<th class='min-w-100px'>TTL</th>
+						<th class='min-w-100px'>Email</th>
+						<th class='min-w-100px'>No. Ponsel</th>
+						<th class='min-w-50px'>Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+					$ListMode
+				</tbody>
+			</table>
 				
 			
 				

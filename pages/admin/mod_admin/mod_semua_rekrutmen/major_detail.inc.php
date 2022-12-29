@@ -21,7 +21,7 @@
 						<td colspan=2>Jurusan</td>
 					</tr>
 					<tr>						
-						<td colspan=2>".$Func->cmbQuery('major_id',@$major_id,"select major_id, name from magang.major_tr ")."</td>
+						<td colspan=2>".$Func->cmbQuery('major_id',@$major_id,"select major_id, name from magang.major_tr order by name")."</td>
 					</tr>
 					<tr>
 						<td colspan=2>Catatan</td>

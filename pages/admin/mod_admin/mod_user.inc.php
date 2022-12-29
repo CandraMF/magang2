@@ -17,11 +17,10 @@
 				{	
 					$Add="";
 					$Add.=!empty($password)?", password='{$password}'":"";
-					$Add.=!empty($person_id)?", person_id='{$person_id}'":"";
 					$Qry="UPDATE magang.user_tm SET name='{$name}', email='{$email}', mobile='{$mobile}', role_id='{$role_id}', status_id='{$status_id}' {$Add} WHERE  user_id='{$idSub}';";}
 				else
-				{$Qry="INSERT INTO magang.user_tm (login, password, name, email, mobile, role_id, status_id, person_id, create_date) VALUES ('{$login}', '{$password}', '{$name}', '{$email}', '{$mobile}', '{$role_id}', '{$status_id}', {$person_id}, '{$pcreated_date}');";}
-			
+				{$Qry="INSERT INTO magang.user_tm (login, password, name, email, mobile, role_id, status_id, create_date) VALUES ('{$plogin}', '{$password}', '{$name}', '{$email}', '{$mobile}', '{$role_id}', '{$status_id}', '{$pcreated_date}');";}
+		
 				$Simpan=_mysql_query( $Qry );
 				
 				

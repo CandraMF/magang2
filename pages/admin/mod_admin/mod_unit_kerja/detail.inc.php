@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<td>Department/Unit Kerja</td>
-						<td>".$Func->txtField('name',@$name,'15','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('name',@$name,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Posisi</td>
@@ -29,7 +29,7 @@
 					</tr>
 					<tr>
 						<td>Urutan</td>
-						<td>".$Func->txtField('code',@$code,'15','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('code',@$code,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Status</td>

@@ -22,13 +22,13 @@
 								<td>Nama&nbsp;Lengkap</td>
 							</tr>
 							<tr>
-								<td>".$Func->txtField('name',@$name,'15','','text',"style='width:100%'")."</td>	
+								<td>".$Func->txtField('name',@$name,'','','text',"style='width:100%'")."</td>	
 							</tr>
 							<tr>
 								<td>Email</td>
 							</tr>
 							<tr>
-								<td>".$Func->txtField('email',@$email,'15','','text',"style='width:100%'")."</td>	
+								<td>".$Func->txtField('email',@$email,'','','text',"style='width:100%'")."</td>	
 							</tr>
 							<tr>
 								<td colspan=2>
@@ -38,38 +38,38 @@
 										<td>Gelar Akhir</td>													
 									</tr>
 									<tr>
-										<td>".$Func->txtField('title_pre',@$title_pre,'15','','text',"style='width:100%'")."</td>	
-										<td>".$Func->txtField('title_post',@$title_post,'15','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('title_pre',@$title_pre,'','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('title_post',@$title_post,'','','text',"style='width:100%'")."</td>	
 									</tr>
 									<tr>
 										<td>Nomor KTP</td>
 										<td>NPWP</td>
 									</tr>
 									<tr>										
-										<td>".$Func->txtField('identity_id',@$identity_id,'15','','text',"style='width:100%'")."</td>	
-										<td>".$Func->txtField('tax_id',@$tax_id,'15','','text',"style='width:100%'")."</td>
+										<td>".$Func->txtField('identity_id',@$identity_id,'','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('tax_id',@$tax_id,'','','text',"style='width:100%'")."</td>
 									</tr>
 									<tr>
 										<td>Nomor SIM A</td>
 										<td>Nomor SIM B</td>
 									</tr>
 									<tr>										
-										<td>".$Func->txtField('driving_a',@$driving_a,'15','','text',"style='width:100%'")."</td>
-										<td>".$Func->txtField('driving_b',@$driving_b,'15','','text',"style='width:100%'")."</td>
+										<td>".$Func->txtField('driving_a',@$driving_a,'','','text',"style='width:100%'")."</td>
+										<td>".$Func->txtField('driving_b',@$driving_b,'','','text',"style='width:100%'")."</td>
 									</tr>
 									<tr>
 										<td>Nomor SIM C</td>
 									</tr>
 									<tr>
-										<td colspan=2>".$Func->txtField('driving_c',@$driving_c,'15','','text',"style='width:100%'")."</td>
+										<td colspan=2>".$Func->txtField('driving_c',@$driving_c,'','','text',"style='width:100%'")."</td>
 									</tr>
 									<tr>
 										<td>Tempat Lahir</td>
 										<td>Tgl. Lahir</td>
 									</tr>
 									<tr>
-										<td>".$Func->txtField('birth_place',@$birth_place,'15','','text',"style='width:100%'")."</td>
-										<td>".$Func->txtField('birth_date',@$birth_date,'15','','date',"style='width:100%'")."</td>
+										<td>".$Func->txtField('birth_place',@$birth_place,'','','text',"style='width:100%'")."</td>
+										<td>".$Func->txtField('birth_date',@$birth_date,'','','date',"style='width:100%'")."</td>
 									</tr>
 									<tr>
 										<td>Gol. Darah</td>
@@ -107,8 +107,8 @@
 										<td>Kode POS Asal</td>
 									</tr>
 									<tr>
-										<td>".$Func->txtField('region',@$region,'15','','text',"style='width:100%'")."</td>	
-										<td>".$Func->txtField('zip',@$zip,'15','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('region',@$region,'','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('zip',@$zip,'','','text',"style='width:100%'")."</td>	
 									</tr>
 									</table>
 								</td>	
@@ -138,8 +138,8 @@
 										<td>Kode Pos Tinggal</td>
 									</tr>
 									<tr>
-										<td>".$Func->txtField('region_home',@$region_home,'15','','text',"style='width:100%'")."</td>	
-										<td>".$Func->txtField('zip_home',@$zip_home,'15','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('region_home',@$region_home,'','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('zip_home',@$zip_home,'','','text',"style='width:100%'")."</td>	
 									</tr>
 									</table>
 								</td>	
@@ -152,8 +152,8 @@
 										<td>No Ponsel Alternatif</td>
 									</tr>	
 									<tr>										
-										<td>".$Func->txtField('mobile',@$mobile,'15','','text',"style='width:100%'")."</td>	
-										<td>".$Func->txtField('mobile_alt',@$mobile_alt,'15','','text',"style='width:100%'")."</td>
+										<td>".$Func->txtField('mobile',@$mobile,'','','text',"style='width:100%'")."</td>	
+										<td>".$Func->txtField('mobile_alt',@$mobile_alt,'','','text',"style='width:100%'")."</td>
 									</tr>
 									<tr>
 										<td>Etnis</td>

@@ -29,16 +29,16 @@
 						
 					</tr>
 					<tr>
-						<td>".$Func->txtField('open_date',substr(@$open_date,0,10),'15','','date',"style='width:80%'")."</td>
-						<td>".$Func->txtField('close_date',substr(@$close_date,0,10),'15','','date',"style='width:80%'")."</td>
+						<td>".$Func->txtField('open_date',substr(@$open_date,0,10),'','','date',"style='width:80%'")."</td>
+						<td>".$Func->txtField('close_date',substr(@$close_date,0,10),'','','date',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>No. Surat</td>
 						<td>Tgl. Surat</td>
 					</tr>
 					<tr>
-						<td>".$Func->txtField('letter',@$letter,'15','','text',"style='width:80%'")."</td>
-						<td>".$Func->txtField('letter_date',@$letter_date,'15','','date',"style='width:80%'")."</td>
+						<td>".$Func->txtField('letter',@$letter,'','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('letter_date',@$letter_date,'','','date',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td colspan=2>Posisi</td>
@@ -50,7 +50,7 @@
 						<td colspan=2>Unit Kerja</td>
 					</tr>
 					<tr>						
-						<td colspan=2>".$Func->cmbQuery('department_id',@$department_id,"select department_id, name from magang.department_tr where status_id='DEP101'")."</td>
+						<td colspan=2>".$Func->cmbQuery('department_id',@$department_id,"select department_id, name from magang.department_tr where status_id='DEP101' and position='Divisi' order by code")."</td>
 					</tr>
 					<tr>
 						<td colspan=2>Keterangan</td>

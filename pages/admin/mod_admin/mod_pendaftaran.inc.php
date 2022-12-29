@@ -53,23 +53,11 @@
 			if(empty($Action)){$Func->kosongkanData("magang.recruitment_person_tx");}
 	}
 		$Func->ambilData("select person_id from magang.person_tm where email='{$sUserId}'");
-	$Qry = _mysql_query( "select count(*) as jml from magang.recruitment_person_tx where person_id='{$person_id}'" );	
-	$Hasil=_mysql_fetch_array($Qry);	
-	$jCount=!empty($Hasil['jml'])?$Hasil['jml']:0;	
-	$wh="";
-	if ($jCount > 0){
-		$Func->ambilData("select recruitment_id as prmid from magang.recruitment_person_tx where person_id='{$person_id}'");
-		
-		$wh=" and recruitment_id='{$prmid}'";
-		$jinfo=1;
-	}else{
-		$jinfo=2;
-	}
-
+	
 	$ListMode="";$i=1; 
 	$PopUpWidth="'450','200'"; 
 	///// PARAMETER AND QUERY GRID 
-	$Qry="select recruitment_id ,open_date, close_date, position, department, description from magang.recruitment_tx where status_id='REC101' $wh order by open_date"; 
+	$Qry="select recruitment_id ,open_date, close_date, position, department, description from magang.recruitment_tx where status_id='REC101'  order by open_date"; 
 	$Qry=_mysql_query($Qry); 
 	
 	///// LIST GRID 
@@ -85,21 +73,39 @@
 
 			";
 		}
-		if($jinfo==1){
+
+		$Qry01 = _mysql_query("select count(*) as jml from magang.recruitment_person_tx where person_id='{$person_id}' and recruitment_id='{$Isi['recruitment_id']}'" );	
+		$Hasil01=_mysql_fetch_array($Qry01);	
+		$jCount01=!empty($Hasil01['jml'])?$Hasil01['jml']:0;	
+		if ($jCount01 > 0){
+			$Func->ambilData("select recruitment_id as prmid from magang.recruitment_person_tx where person_id='{$person_id}'");
+			
+		
+		
 			$onclick="onclick=\"Fm.Action.value='Lihat';Fm.submit();\"";
-			$FrmApply="<button type='button' class='btn btn-sm btn-info' {$onclick}>INFORMASI</button>";
+			$FrmApply="<button type='button' class='btn btn-sm btn-info' {$onclick}>Jadwal</button>";
 		}else{
+		
+
 			$onclick="onclick=\"Cek=confirm('Apakah anda yakin akan melakukan proses pendaftaran?');if(!Cek){return false;}else{Fm.recruitment_id.value='{$Isi['recruitment_id']}';Fm.Action.value='Apply';Fm.submit();}\"";
 			$FrmApply="<button type='button' class='btn btn-sm btn-success' {$onclick}>APPLY</button>";
 		}
+
+
+
+
+		
 		
 		$ListMode.=" 
-			<div class='card shadow-sm'>
+
+		<div class='col-lg-4'>
+   
+			<div class='card  card-stretch-50 shadow-sm mb-5'>
 				<div class='card-header'>
-					<h3 class='card-title'>{$Isi['department']}</h3>
+					<h3 class='card-title'>{$Isi['position']}</h3>
 					<div class='card-toolbar'>
 						<button type='button' class='btn btn-sm btn-light'>
-							{$Isi['position']}
+							{$Isi['department']}
 						</button>
 						{$FrmApply}
 						
@@ -115,7 +121,7 @@
 							<h5 class='mb-1'>Keterangan</h5>
 							<!--end::Title-->
 							<!--begin::Content-->
-							<span{$Isi['description']}.</span>
+							<span>{$Isi['description']}.</span>
 							<!--end::Content-->
 						</div>
 						<!--end::Wrapper-->
@@ -126,10 +132,12 @@
 					{$ListM}
 				</div>
 				<div class='card-footer'>
-					Dibuka : <span class='badge badge-info' >".$Func->TglAll($Isi['open_date'])."</span> s/d
-					<span class='badge badge-warning'>".$Func->TglAll($Isi['close_date'])."</span>
+					Dibuka : <code>".$Func->TglAll($Isi['open_date'])."</code> s/d
+					<code>".$Func->TglAll($Isi['close_date'])."</code>
 				</div>
 			</div>
+		 </div>
+
 		";$i++; 
 	}
 
@@ -143,8 +151,10 @@
 	".$Func->txtField('idSub',$idSub,'','','hidden')." 
 	".$Func->txtField('recruitment_id',$recruitment_id,'','','hidden')." 
 		<div class='py-10'>
-			
+			<div class='row g-12'>
 			$ListMode
+			</div>
+			
 		</div>
 		
 		

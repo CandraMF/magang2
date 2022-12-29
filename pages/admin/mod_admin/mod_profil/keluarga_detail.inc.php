@@ -21,19 +21,19 @@
 					</tr>
 					<tr>
 						<td>Nama&nbsp;Lengkap</td>
-						<td>".$Func->txtField('name',@$name,'14','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('name',@$name,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Tempat&nbsp;Lahir</td>
-						<td>".$Func->txtField('birth_place',@$birth_place,'14','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('birth_place',@$birth_place,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Tanggal&nbsp;Lahir</td>
-						<td>".$Func->txtField('birth_date',@$birth_date,'14','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('birth_date',@$birth_date,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>No.&nbsp;Ponsel</td>
-						<td>".$Func->txtField('mobile',@$mobile,'13','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('mobile',@$mobile,'','','text',"style='width:80%'")."</td>
 					</tr>
 					</table>
 				</div>

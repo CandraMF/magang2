@@ -17,36 +17,33 @@
 					<table width='100%'>
 					<tr>
 						<td>Username</td>
-						<td>".$Func->txtField('plogin',@$plogin,'15','15','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('plogin',@$plogin,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Nama</td>
-						<td>".$Func->txtField('name',@$name,'15','15','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('name',@$name,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td>".$Func->txtField('password','','15','15','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('password','','','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Role</td>
-						<td>".$Func->cmbQuery('role_id',@$role_id,"select status_id, name  from magang.status_tr where type='Hak Akses User'")."</td>
+						<td>".$Func->cmbQuery('role_id',@$role_id,"select status_id, name  from magang.status_tr where type='Hak Akses User' and status_id!='ROL001'")."</td>
 					</tr>
 					<tr>
 						<td>Email</td>
-						<td>".$Func->txtField('email',@$email,'15','15','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('email',@$email,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>No. Ponsel</td>
-						<td>".$Func->txtField('mobile',@$mobile,'15','15','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('mobile',@$mobile,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Status</td>
 						<td>".$Func->cmbQuery('status_id',@$status_id,"select status_id, name  from magang.status_tr where type='Status User'")."</td>
 					</tr>
-					<tr>
-						<td>Peserta</td>
-						<td>".$Func->cmbQuery('person_id',@$person_id,"select person_id, name from magang.person_tm")."</td>
-					</tr>
+					
 					<tr>
 						<td></td>
 						<td></td>

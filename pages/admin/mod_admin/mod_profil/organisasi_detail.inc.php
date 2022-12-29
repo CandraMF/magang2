@@ -17,19 +17,19 @@
 					<table width='100%'>
 					<tr>
 						<td width='10%'>Organisasi</td>
-						<td>".$Func->txtField('organization',@$organization,'14','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('organization',@$organization,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Posisi/Jabatan</td>
-						<td>".$Func->txtField('position',@$position,'14','','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('position',@$position,'','','text',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Tanggal&nbsp;Masuk</td>
-						<td>".$Func->txtField('start_period',@$start_period,'14','','date',"style='width:80%'")."</td>
+						<td>".$Func->txtField('start_period',@$start_period,'','','date',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Tanggal&nbsp;Keluar</td>
-						<td>".$Func->txtField('end_period',@$end_period,'13','','date',"style='width:80%'")."</td>
+						<td>".$Func->txtField('end_period',@$end_period,'','','date',"style='width:80%'")."</td>
 					</tr>
 					<tr>
 						<td>Deskripsi</td>

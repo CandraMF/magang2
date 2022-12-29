@@ -1,5 +1,7 @@
 <?php
 $MainJudul="";
+
+$sbadg=!empty($sbadg)?$sbadg:"";
 $idSub=!empty($idSub)?$idSub:"0";
 @session_start();
 $Main->Tema= "templates/baru";

@@ -1,7 +1,7 @@
 <?php
 	$MainJudul="";
-	$Main->MainJudul="Master Data";
-	$Main->Judul="Data Daerah";
+	$Main->MainJudul="Utama";
+	$Main->Judul="Jurusan";
 	$recruitment_id=$idPop;
 	$Pesan="";
 	$ParamAksi="";
@@ -55,7 +55,7 @@
 	$ListMode="";$i=1; 
 	$PopUpWidth="'450','200'"; 
 	///// PARAMETER AND QUERY GRID 
-	$Qry="SELECT * FROM magang.recruitment_major_tx as a order by a.id"; 
+	$Qry="SELECT * FROM magang.recruitment_major_tx as a where recruitment_id='{$idPop}' order by a.id"; 
 	
 	$Qry=_mysql_query($Qry); 
 	
@@ -87,6 +87,24 @@
 	}
 
 	include "{$Dir->ModAdmin}{$Pr}/major_detail.inc.php";
+	///////////////////////////
+	$Func->ambilData("SELECT a.status_id as sstatus_id, a.position as sposition, b.sts as ssts, a.department as sdepartment, a.open_date as sopen_date, a.close_date as sclose_date, a.letter as sletter, a.letter_date as sletter_date, a.description as sdescription FROM magang.recruitment_tx as a inner join (select status_id, name as sts from magang.status_tr where type='Status Rekrutmen') as b on a.status_id=b.status_id where a.recruitment_id='{$idPop}' order by a.recruitment_id");
+
+	switch($sstatus_id){
+		case "REC001":
+			$sbadg="badge badge-secondary";
+		break;
+		case "REC101":
+			$sbadg="badge-success";
+		break;
+		case "REC102":
+			$sbadg="badge-primary";
+		break;
+		case "REC201":
+			$sbadg="badge-warning";
+		break;
+	}
+	///////////////////////////
 	$Main->Isi = "{$Pesan}
 	<form name=Fm2 id=Fm2 method=post Aksi='{$Url->BaseMain}/{$Pg}/{$Pr}/' enctype='multipart/form-data'> 
 	".$Func->txtField('Pr',$Pr,'','','hidden')." 
@@ -95,24 +113,66 @@
 	".$Func->txtField('idPop',$idPop,'','','hidden')." 
 	".$Func->txtField('idPopSub',$idPopSub,'','','hidden')." 
 		<div class='py-10'>
-			<a href='#' class='btn btn-success me-2 mb-2' onclick=\"Fm2.Aksi.value='Baru';Fm2.submit();\" ><i class='las fa-folder-plus fs-2 me-2'></i>Tambah Data</a>
+			<div class='card shadow-sm'>
+				<div class='card-header'>
+					<h3 class='card-title'>Jurusan Rekrutmen</h3>
+					<div class='card-toolbar'>
+						
+						<button type='button' class='btn btn-sm btn-light'>
+							<a href='{$Url->BaseMain}/{$Pg}/{$Pr}/'   >Kembali</a>
+						</button>
+					</div>
+				</div>
+				<div class='card-body'>
+					<table class='table table-striped gy-5 gs-7'>
+						<thead>
+							<tr class='fw-bold fs-6 text-gray-800'>
+							
+								<th class='min-w-100px'>Posisi</th>
+								<th class='min-w-100px'>Unit Kerja</th>
+								<th class='min-w-100px'>Periode</th>
+								<th class='min-w-100px'>Surat</th>
+								<th class='min-w-100px'>Keterangan</th>
+							
+							</tr>
+						</thead>
+						<tr>
+							
+							<td><strong class='text-gray-800 fw-boldest fs-5 text-hover-primary mb-1'>{$sposition}</strong><br>
+							<span class='badge {$sbadg}'>{$ssts}</span>
+							</td>
+							<td><span class='text-gray-400 fw-bold d-block'>{$sdepartment}</span></td>
+							<td> <code >".$Func->TglAll($sopen_date)."</code>s/d				<code>".$Func->TglAll($sclose_date)."</code></td>
+							<td>
+								No. Surat<code >{$sletter}</code> <br> Tgl. Surat  <code >".$Func->TglAll($sletter_date)."</code>
+							</td>
+							<td>
+								<em>{$sdescription}</em>
+							</td>
+							
+						</tr> 
+					</table>
+				</div>
+				<hr>
+				<div class='card-body'>
+					<a href='#' class='btn btn-success me-2 mb-2' onclick=\"Fm2.Aksi.value='Baru';Fm2.submit();\" ><i class='las fa-folder-plus fs-2 me-2'></i>Tambah Data</a>
+					
+					<table id='kt_datatable_example_3' class='table table-striped gy-5 gs-7'>
+						<thead>
+							<tr class='fw-bold fs-6 text-gray-800'>
+								<th class='min-w-10px'>No</th>
+								<th class='min-w-100px'>Jurusan</th>
+								<th class='min-w-100px'>Keterangan</th>
+								<th class='min-w-50px'>Aksi</th>
+							</tr>
+						</thead>
+						<tbody>
+							$ListMode
+						</tbody>
+					</table>
+				</div>
 			
-			<table id='kt_datatable_example_3' class='table table-striped gy-5 gs-7'>
-			<thead>
-				<tr class='fw-bold fs-6 text-gray-800'>
-					<th class='min-w-10px'>No</th>
-					<th class='min-w-100px'>Jurusan</th>
-					<th class='min-w-100px'>Keterangan</th>
-					<th class='min-w-50px'>Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				$ListMode
-			</tbody>
-		</table>
-				
-			
-				
+			<div>
 		</div>
 		
 		<script>

@@ -17,7 +17,7 @@
 					<table width='100%'>
 					<tr>
 						<td>Daerah</td>
-						<td>".$Func->txtField('name',@$name,'15','15','text',"style='width:80%'")."</td>
+						<td>".$Func->txtField('name',@$name,'','','text',"style='width:80%'")."</td>
 					</tr>
 					</table>
 				</div>

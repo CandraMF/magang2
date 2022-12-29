@@ -3,8 +3,8 @@
 	$ArrMenuAdm=array(
 		array("Utama","H","#"),
 		array("Beranda","D","beranda"),
-		array("Rekrutmen Aktif","D","rekrutmen_aktif"),
-		array("Semua Rekrutmen","D","semua_rekrutmen"),
+		
+		array("Rekrutmen","D","semua_rekrutmen"),
 		array("Peserta","D","peserta"),
 		array("Master Data","H","#"),
 		array("Unit Kerja","D","unit_kerja"),
